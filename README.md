@@ -22,10 +22,11 @@ talk(inp, estatus):
 		estatus: the json file it may search the keys into. (you dont have to put .json) the default file is p1.
 Learn(inp, chat, estatus, *args):
 	It stores the new data in "[estatus].json" (estatus is made so you can have multiple key storing files) and "answ.json" files 
-	inp: the newest message
-	chat: the chat/session name so it can follow a conversation while receiving inputs not fromt the same chat.
-	estatus: the json file it may store the keys into. (you dont have to put .json) the default file is p1.
-	args: its just in case you want to overwrite the message its replying to. Its optional.
+	Variables:
+		inp: the newest message
+		chat: the chat/session name so it can follow a conversation while receiving inputs not fromt the same chat.
+		estatus: the json file it may store the keys into. (you dont have to put .json) the default file is p1.
+		args: its just in case you want to overwrite the message its replying to. Its optional.
 	
 The telegram bot file is "chatbot telegram - ntk.py" where you have to write your token and your bot name.
 
