@@ -16,8 +16,8 @@ It works with two basic functions:
 
 talk(inp, estatus):
 
-	this returns a number output that is the index of the reply chosen in the answ.json file.
-	(in the future it may have support for multiple answer storing files).
+this returns a number output that is the index of the reply chosen in the answ.json file.
+(in the future it may have support for multiple answer storing files).
 	
 	Variables:
 		inp: the text it may reply to.
