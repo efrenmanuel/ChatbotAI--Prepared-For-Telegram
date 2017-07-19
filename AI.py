@@ -41,23 +41,23 @@ def talk(inp, estatus):
       #here it finds the most similar one
         
       except Exception as e:
-        print(e)
+#        print(e)
         probs=[]
         for key in list(p.keys()):
           probs.append(compare(word,key))
         big=0
         for i in range(0,len(probs)):
-          print(probs[i])
+#          print(probs[i])
           if probs[i]>probs[big]:
             big=i
         p=p[list(p.keys())[big]]
         
-  #checks if there is a pplain response, otherwise, it uses random words to aproach an end
+  #checks if there is a plain response, otherwise, it uses random words to aproach an end
 
   while not isinstance( list(p.values())[0], int ):
     p=p[numpy.random.choice(list(p.keys()))]
   out=p
-  print(out)
+  #print(out)
   return (out)
 
 
@@ -116,14 +116,14 @@ except:
       dic=u"["
       for i in last:
         dic=dic+"'"+i+"']"
-        print(dic)
+        #print(dic)
         exec('''try:
   past{0} = past{0}+1
 except:
   past{0} = {1}'''.format(dic.encode("unicode_escape").decode("utf-8", "surrogateescape"),{}))
         dic=dic+"["
       dic=dic+"'"+number+"']"
-      print(dic)
+      #print(dic)
       exec('''try:
   past{0} = past{0}+1
 except:

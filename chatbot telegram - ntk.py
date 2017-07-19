@@ -13,14 +13,22 @@ bot = telepot.Bot(TOKEN)
 botname="Your bot name here"
 
 def talk(text, estatus):
+    import AI
     rawdata=AI.talk(text,estatus)
     probs=list(rawdata.values())
     totalprob=0
     for i in probs:
-      totalprob=totalprob+i
+      print(i)
+      try:
+          totalprob=totalprob+i
+      except:
+          pass
     for i in range (0,len(probs)):
-      probs[i]=decimal.Decimal(probs[i])/totalprob
-      print(probs)
+        try:
+            probs[i]=decimal.Decimal(probs[i])/totalprob
+            print(probs)
+        except:
+            probs[i]=0
     answsheet=json.load(open("answ.json"))
     print(answsheet[numpy.random.choice(list(rawdata.keys()),p=probs)])
     return(answsheet[numpy.random.choice(list(rawdata.keys()),p=probs)])
