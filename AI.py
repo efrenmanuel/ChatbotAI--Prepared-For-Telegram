@@ -7,7 +7,12 @@ from difflib import SequenceMatcher as comp
 
 
 #compares two words to choose the best
-
+def isall(list,type):
+  for i in list:
+    if not isinstance(i,type):
+      
+      return(False)
+  return(True)
 def compare(a,b):                                 
   return(comp(None,a,b).ratio())
 #here it decides what to reply
@@ -29,7 +34,7 @@ def talk(inp, estatus):
 
     #here it checks if the dic finished already
 
-    if isinstance( list(p.values())[0], int ):
+    if isall(list(p.values()), int ):
       break
     else:
 
@@ -53,11 +58,16 @@ def talk(inp, estatus):
         p=p[list(p.keys())[big]]
         
   #checks if there is a plain response, otherwise, it uses random words to aproach an end
-
-  while not isinstance( list(p.values())[0], int ):
+  intkeys=[]
+  while isall(list(p.values()), dict):
     p=p[numpy.random.choice(list(p.keys()))]
-  out=p
-  #print(out)
+  for i in p.keys():
+    if isinstance(p[i],int):
+      intkeys.append(i)
+  out={}
+  for i in intkeys:
+    out[i]=p[i]
+  print(out)
   return (out)
 
 
