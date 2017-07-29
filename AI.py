@@ -101,29 +101,30 @@ def learn(inp, chat, estatus, *args):
       for i in answ:
         if answ[i]==rawinp:
           number=i
+          break
     past=json.load(open(estatus+".json"))
     dic="["
     for i in last:
       print(i.encode("unicode_escape").decode("utf-8", "surrogateescape"))
       dic=dic+"'"+i.encode("unicode_escape").decode("utf-8", "surrogateescape")+"']["
     dic=dic+"'"+number+"']"
+    print(dic)
     try:
       exec('''try:
-  past{0} = past{0}+1
+  past{0}=past{0}
 except:
-  past{0}=1'''.format(dic.format("utf-8", "surrogateescape")))
+  past{0}={}'''.format(dic.format("utf-8", "surrogateescape")))
     except:
       dic=u"["
       for i in last:
         dic=dic+"'"+i+"']"
-        #print(dic)
         exec('''try:
-  past{0} = past{0}+1
+    past{0} = past{0}
 except:
-  past{0} = {1}'''.format(dic.encode("unicode_escape").decode("utf-8", "surrogateescape"),{}))
+  past{0}={1}'''.format(dic.encode("unicode_escape").decode("utf-8", "surrogateescape"),{}))
         dic=dic+"["
       dic=dic+"'"+number+"']"
-      #print(dic)
+      #print("asdasdasdaws")
       exec('''try:
   past{0} = past{0}+1
 except:
