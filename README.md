@@ -7,6 +7,7 @@ This is a learning AI project made in 5 hours and adapted for telegram (and, aft
 
 	Python 3.6.1
 	numpy module
+	 
 	
 ### How to use it
 
